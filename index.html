@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Junior High English: Present Perfect Master (Units 13, 14 & 15)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans JP', sans-serif;
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.05); opacity: 0.4; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    .pulse-animation {
+      animation: pulse-ring 3s infinite ease-in-out;
+    }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; }
+      .print-border { border: 1px solid #cbd5e1 !important; box-shadow: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+  <!-- TOP HEADER & NAVIGATION -->
+  <header class="gradient-bg text-white shadow-xl sticky top-0 z-50 no-print">
+    <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="p-2.5 bg-indigo-500/30 rounded-xl border border-indigo-400/30">
+          <i data-lucide="book-open-check" class="w-7 h-7 text-indigo-300"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-indigo-500/40 text-indigo-200 text-xs font-semibold px-2.5 py-0.5 rounded-full border border-indigo-400/30">Junior High 3</span>
+            <span class="text-xs text-slate-300">Present Perfect Mastery (Units 13, 14 & 15)</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight text-white">Present Perfect Complete Mastery / 現在完了形総合マスター</h1>
+          <p class="text-xs text-indigo-200">Completion, Result, Experience & Continuity / 完了・結果・経験・継続の総合学習ステーション</p>
+        </div>
+      </div>
+
+      <!-- Overall Score & Mastery Widget -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/10">
+        <div class="text-center">
+          <p class="text-[10px] text-slate-300 font-medium uppercase tracking-wider">Total Score / 得点</p>
+          <p id="global-score-display" class="text-xl font-extrabold text-amber-300">0 / 0</p>
+        </div>
+        <div class="h-8 w-px bg-white/20"></div>
+        <div class="text-center">
+          <p class="text-[10px] text-slate-300 font-medium uppercase tracking-wider">Mastery / 達成度</p>
+          <p id="global-mastery-display" class="text-xl font-extrabold text-emerald-400">0%</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Links / Tabs -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex space-x-1 sm:space-x-3 border-t border-white/10 overflow-x-auto">
+      <button onclick="switchSection('concept')" id="nav-btn-concept" class="nav-btn px-3 py-3 text-xs sm:text-sm font-semibold flex items-center gap-1.5 border-b-2 border-indigo-400 text-indigo-300 whitespace-nowrap">
+        <i data-lucide="compass" class="w-4 h-4"></i> 1. Concept / 文法解説
+      </button>
+      <button onclick="switchSection('verbs')" id="nav-btn-verbs" class="nav-btn px-3 py-3 text-xs sm:text-sm font-semibold flex items-center gap-1.5 border-b-2 border-transparent text-slate-400 hover:text-slate-200 whitespace-nowrap">
+        <i data-lucide="list-tree" class="w-4 h-4"></i> 2. Verbs / 動詞辞書
+      </button>
+      <button onclick="switchSection('worksheets')" id="nav-btn-worksheets" class="nav-btn px-3 py-3 text-xs sm:text-sm font-semibold flex items-center gap-1.5 border-b-2 border-transparent text-slate-400 hover:text-slate-200 whitespace-nowrap">
+        <i data-lucide="printer" class="w-4 h-4"></i> 3. Worksheet Maker / ワークシート
+      </button>
+      <button onclick="switchSection('practice')" id="nav-btn-practice" class="nav-btn px-3 py-3 text-xs sm:text-sm font-semibold flex items-center gap-1.5 border-b-2 border-transparent text-slate-400 hover:text-slate-200 whitespace-nowrap">
+        <i data-lucide="dumbbell" class="w-4 h-4"></i> 4. Section Challenges / 練習問題
+      </button>
+      <button onclick="switchSection('online')" id="nav-btn-online" class="nav-btn px-3 py-3 text-xs sm:text-sm font-semibold flex items-center gap-1.5 border-b-2 border-transparent text-amber-400 hover:text-amber-200 whitespace-nowrap font-bold">
+        <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i> 5. Online Challenge / オンラインチャレンジ
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex-grow w-full space-y-8">
+
+    <!-- ================= SECTION 1: CONCEPT & GRAMMAR OVERVIEW ================= -->
+    <section id="section-concept" class="main-section space-y-6">
+      <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-bold rounded-full">Section 1</span>
+          <span class="text-xs text-slate-500 font-medium">Units 13, 14 & 15 Comprehensive Grammar Guide / 文法総合ガイド</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2">Present Perfect Comprehensive Mastery / 現在完了形の全体像</h2>
+        <p class="text-slate-600 text-sm mb-8">
+          The present perfect tense is formed with <strong>have (has) + past participle (過去分詞)</strong> and connects the past with the present. It has four main usages: Completion, Result, Experience, and Continuity.<br>
+          現在完了形は「have (has) ＋ 過去分詞」の形で、過去の出来事が現在にどうつながっているかを表します。大きく分けて「完了」「結果」「経験」「継続」の4つの用法があります。
+        </p>
+
+        <!-- Grid of Concepts (Units 13, 14, 15) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Unit 13: Completion / Result -->
+          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 bg-indigo-600 text-white font-bold text-xs rounded-lg">Unit 13</span>
+              <span class="text-xs font-bold text-indigo-900">Completion & Result / 完了・結果</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900">「〜してしまったところだ・もう〜した」</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Expresses that an action completed in the past has a direct effect on the present moment. Includes words like just, already, and yet.<br>
+              過去の動作が完了し、その結果が現在に影響していることを表します。
+            </p>
+            <div class="space-y-2 text-xs font-mono bg-white p-4 rounded-xl border border-slate-200 text-slate-800">
+              <p>• <strong>just</strong> (ちょうど〜したところ): <span class="font-sans text-slate-500">He has just arrived.</span></p>
+              <p>• <strong>already</strong> (すでに、もう): <span class="font-sans text-slate-500">She has already finished.</span></p>
+              <p>• <strong>yet</strong> (まだ/もう): <span class="font-sans text-slate-500">Have you finished yet?</span></p>
+              <p class="text-indigo-700">• <strong>have gone to</strong>: <span class="font-sans text-slate-500">〜に行ってしまった（今ここにいない）</span></p>
+            </div>
+          </div>
+
+          <!-- Unit 14: Experience -->
+          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 bg-emerald-600 text-white font-bold text-xs rounded-lg">Unit 14</span>
+              <span class="text-xs font-bold text-emerald-900">Experiences / 経験</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900">「〜したことがある / ない」</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Expresses life experiences or the number of times something has happened from the past up to now.<br>
+              過去から現在までの人生における経験の有無や回数を表します。
+            </p>
+            <div class="space-y-2 text-xs font-mono bg-white p-4 rounded-xl border border-slate-200 text-slate-800">
+              <p>• <strong>ever</strong> (今までに): <span class="font-sans text-slate-500">Have you ever been to...</span></p>
+              <p>• <strong>never</strong> (一度も〜ない): <span class="font-sans text-slate-500">I have never seen...</span></p>
+              <p>• <strong>once / twice / times</strong> (回数): <span class="font-sans text-slate-500">...three times</span></p>
+              <p class="text-emerald-700">• <strong>have been to</strong>: <span class="font-sans text-slate-500">〜へ行ったことがある（今戻っている）</span></p>
+            </div>
+          </div>
+
+          <!-- Unit 15: Continuity -->
+          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 bg-sky-600 text-white font-bold text-xs rounded-lg">Unit 15</span>
+              <span class="text-xs font-bold text-sky-900">Continuity / 継続</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900">「ずっと〜し続けている・である」</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Expresses an action or state that started in the past and continues into the present moment. Uses duration (for) and starting points (since).<br>
+              過去のある時点から現在まで状態や動作が継続していることを表します。
+            </p>
+            <div class="space-y-2 text-xs font-mono bg-white p-4 rounded-xl border border-slate-200 text-slate-800">
+              <p>• <strong>for + 期間</strong> (〜の間): <span class="font-sans text-slate-500">for five years</span></p>
+              <p>• <strong>since + 起点</strong> (〜から): <span class="font-sans text-slate-500">since 2020</span></p>
+              <p>• <strong>How long ...?</strong> (どのくらいの間): <span class="font-sans text-slate-500">How long have you...?</span></p>
+              <p class="text-sky-700">• <strong>State Verbs</strong>: <span class="font-sans text-slate-500">know, live, have, be</span></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 2: EXTRACTED VERBS DICTIONARY ================= -->
+    <section id="section-verbs" class="main-section hidden space-y-6">
+      <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200 space-y-6">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full">Section 2</span>
+              <span class="text-xs text-slate-500 font-medium">Extracted Verbs Dictionary / 抽出動詞辞書</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900">Extracted Verbs Dictionary (動詞一覧)</h2>
+            <p class="text-slate-600 text-xs sm:text-sm mt-1">
+              Alphabetical list of verbs across all units with Japanese meanings, past forms, and past participle forms.<br>
+              全ユニットの動詞をアルファベット順に整理し、日本語訳・過去形・過去分詞形を掲載しています。
+            </p>
+          </div>
+          
+          <!-- Search filter input -->
+          <div class="w-full sm:w-auto">
+            <input type="text" id="verb-search-input" onkeyup="filterVerbs()" placeholder="Search verb / 動詞を検索..." 
+              class="w-full sm:w-64 px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          </div>
+        </div>
+
+        <!-- Verbs Table -->
+        <div class="overflow-x-auto rounded-2xl border border-slate-200">
+          <table class="w-full text-left border-collapse" id="verbs-table">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider">
+                <th class="p-4">Verb (原形)</th>
+                <th class="p-4">Japanese Meaning (日本語訳)</th>
+                <th class="p-4">Past Tense (過去形)</th>
+                <th class="p-4">Past Participle (過去分詞形)</th>
+              </tr>
+            </thead>
+            <tbody id="verbs-tbody" class="divide-y divide-slate-200 text-xs sm:text-sm">
+              <!-- Injected by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 3: WORKSHEET MAKER (12 problems, word bank) ================= -->
+    <section id="section-worksheets" class="main-section hidden space-y-6">
+      <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200 space-y-6">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-bold rounded-full">Section 3</span>
+          <span class="text-xs text-slate-500 font-medium">Worksheet Generator / ワークシート作成</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900">Interactive Worksheet Maker (オリジナルワークシート)</h2>
+        <p class="text-slate-600 text-xs sm:text-sm">
+          Customize and generate a 12-problem practice worksheet with a randomized word bank below. Perfect for printing or classroom exercises!<br>
+          全12問のオリジナルワークシートを瞬時に作成。解答欄の代わりに、必要な単語がランダムに並ぶワードバンク（語群）が下部に表示されます。
+        </p>
+
+        <!-- Worksheet Options Form -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 p-6 rounded-2xl border border-slate-200">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-2">Worksheet Title / タイトル:</label>
+            <input type="text" id="ws-title-input" value="Foundational English: Present Perfect Comprehensive Practice Worksheet" 
+              class="w-full px-3.5 py-2 bg-white border border-slate-300 rounded-xl text-xs font-semibold">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-2">Focus Unit / 対象範囲:</label>
+            <select id="ws-unit-select" class="w-full px-3.5 py-2 bg-white border border-slate-300 rounded-xl text-xs font-semibold">
+              <option value="all">Units 13, 14 & 15 Combined (総合)</option>
+              <option value="13">Unit 13: Completion & Result (完了・結果)</option>
+              <option value="14">Unit 14: Experience (経験)</option>
+              <option value="15">Unit 15: Continuity (継続)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <button onclick="generateCustomWorksheet()" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs sm:text-sm rounded-xl shadow-md transition flex items-center gap-2">
+            <i data-lucide="file-text" class="w-4 h-4"></i> Generate Worksheet / ワークシートを生成
+          </button>
+          <button onclick="window.print()" class="px-6 py-3 bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs sm:text-sm rounded-xl shadow-md transition flex items-center gap-2">
+            <i data-lucide="printer" class="w-4 h-4"></i> Print Worksheet / 印刷する
+          </button>
+        </div>
+
+        <!-- Generated Worksheet Preview Area (12 Problems + Word Bank) -->
+        <div id="worksheet-preview-container" class="print-border bg-white p-8 rounded-2xl border border-slate-300 space-y-6">
+          <div class="text-center border-b pb-4">
+            <h3 id="prev-title" class="text-xl font-black text-slate-900">Foundational English: Present Perfect Practice Worksheet</h3>
+            <p class="text-xs text-slate-500 mt-1">Class / クラス: _______ Name / 氏名: _______________________ Score / 得点: _______ / 12</p>
+          </div>
+
+          <!-- 12 Questions Container -->
+          <div id="prev-questions" class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+            <!-- Dynamically populated (12 questions) -->
+          </div>
+
+          <!-- Randomized Word Bank Box below final problem -->
+          <div class="mt-8 p-4 bg-slate-50 rounded-2xl border-2 border-dashed border-purple-300 space-y-2">
+            <h4 class="text-xs font-bold text-purple-900 uppercase tracking-wide flex items-center gap-1.5">
+              <i data-lucide="box" class="w-4 h-4"></i> Word Bank / 語群 (Required Words Box):
+            </h4>
+            <div id="ws-word-bank" class="flex flex-wrap gap-2 text-xs font-mono">
+              <!-- Dynamically populated shuffled words -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 4: SECTION CHALLENGES ================= -->
+    <section id="section-practice" class="main-section hidden space-y-6">
+      <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200 space-y-6">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full">Section 4</span>
+          <span class="text-xs text-slate-500 font-medium">Unit Challenges / 各ユニットの練習問題</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900">Section Challenges (各セクションのチャレンジ問題)</h2>
+        <p class="text-slate-600 text-xs sm:text-sm">
+          Test your skills for each unit! Each challenge contains 6 questions, including 3 word-order rearrangement problems.<br>
+          各ユニット6問の練習問題に挑戦！そのうち3問は語順並べ替え（Rearrange）問題です。
+        </p>
+
+        <!-- Challenge Tabs -->
+        <div class="flex gap-2 bg-slate-100 p-1.5 rounded-2xl max-w-lg">
+          <button onclick="switchChallengeTab('ch13')" id="ch-tab-13" class="flex-1 py-2 text-xs font-bold rounded-xl bg-white text-indigo-900 shadow-sm transition">
+            Unit 13 (Completion)
+          </button>
+          <button onclick="switchChallengeTab('ch14')" id="ch-tab-14" class="flex-1 py-2 text-xs font-bold rounded-xl text-slate-600 hover:text-slate-900 transition">
+            Unit 14 (Experience)
+          </button>
+          <button onclick="switchChallengeTab('ch15')" id="ch-tab-15" class="flex-1 py-2 text-xs font-bold rounded-xl text-slate-600 hover:text-slate-900 transition">
+            Unit 15 (Continuity)
+          </button>
+        </div>
+
+        <!-- Challenge Content -->
+        <div id="challenge-content-13" class="challenge-block space-y-6">
+          <div class="bg-indigo-50 p-4 rounded-2xl border border-indigo-100">
+            <h3 class="text-sm font-bold text-indigo-900">Unit 13 Challenge: Completion & Result (6 Questions)</h3>
+            <p class="text-xs text-indigo-700">Fill in blanks or rearrange words correctly.</p>
+          </div>
+          <div id="ch13-questions" class="space-y-4"></div>
+        </div>
+
+        <div id="challenge-content-14" class="challenge-block hidden space-y-6">
+          <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-100">
+            <h3 class="text-sm font-bold text-emerald-900">Unit 14 Challenge: Experiences (6 Questions)</h3>
+            <p class="text-xs text-emerald-700">Test your knowledge on ever, never, once, and experiences.</p>
+          </div>
+          <div id="ch14-questions" class="space-y-4"></div>
+        </div>
+
+        <div id="challenge-content-15" class="challenge-block hidden space-y-6">
+          <div class="bg-sky-50 p-4 rounded-2xl border border-sky-100">
+            <h3 class="text-sm font-bold text-sky-900">Unit 15 Challenge: Continuity (6 Questions)</h3>
+            <p class="text-xs text-sky-700">Test your knowledge on for, since, and How long.</p>
+          </div>
+          <div id="ch15-questions" class="space-y-4"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 5: ONLINE CHALLENGE SHEET ================= -->
+    <section id="section-online" class="main-section hidden space-y-6">
+      <div id="online-printable-sheet" class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200 space-y-8">
+        
+        <!-- Header Banner -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-gradient-to-r from-slate-900 to-indigo-950 text-white p-6 rounded-2xl shadow-lg">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-400 text-amber-950 text-xs font-extrabold rounded-full mb-2">
+              <i data-lucide="zap" class="w-3.5 h-3.5"></i> Online Challenge Sheet / オンラインチャレンジシート
+            </div>
+            <h2 class="text-xl sm:text-2xl font-black">Present Perfect Speaking & Writing Assessment (Units 13-15)</h2>
+            <p class="text-xs text-indigo-200 mt-1">Answer the following questions (a-j) using the required grammar structure hints. Smartphone friendly with PDF export!<br>以下の10問（a〜j）について、文法構造ヒントを参考に解答を入力してください。スマホ対応＆PDF保存機能付き！</p>
+          </div>
+          <div class="flex flex-wrap gap-2 no-print">
+            <button onclick="saveAsPDF()" class="px-4 py-3 bg-sky-500 hover:bg-sky-600 text-white font-black text-xs sm:text-sm rounded-xl shadow-xl transition flex items-center gap-1.5">
+              <i data-lucide="download" class="w-4 h-4"></i> Save PDF / PDF保存
+            </button>
+            <button onclick="submitOnlineChallenge()" class="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-xs sm:text-sm rounded-xl shadow-xl transition transform hover:scale-105">
+              <i data-lucide="check-circle" class="w-4 h-4 inline mr-1"></i> Submit & Grade / 採点する
+            </button>
+          </div>
+        </div>
+
+        <!-- Instructions Reminder -->
+        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs text-amber-900 flex items-start gap-3">
+          <i data-lucide="info" class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"></i>
+          <div>
+            <span class="font-bold">Instructions & Notes (注意事項):</span><br/>
+            • Hints are provided as to the grammar structure required using Japanese script.<br/>
+            • Japanese translations are provided beneath each question.<br/>
+            • <strong>Note:</strong> Example texts have been removed from the textboxes so you can compose your own original answers freely!<br/>
+            • Smartphone users can tap "Save PDF" to export or print their completed work easily.
+          </div>
+        </div>
+
+        <!-- Questions List (a to j) -->
+        <div class="space-y-6" id="online-questions-container">
+          <!-- Injected via JavaScript -->
+        </div>
+
+        <!-- Result Card for Online Challenge -->
+        <div id="online-result-box" class="hidden bg-slate-900 text-white rounded-2xl p-6 sm:p-8 space-y-4 shadow-2xl">
+          <h3 class="text-xl font-black text-amber-300 flex items-center gap-2">
+            <i data-lucide="award" class="w-6 h-6"></i> Online Challenge Results (採点結果)
+          </h3>
+          <p id="online-score-summary" class="text-sm text-slate-300">You scored ...</p>
+          <div id="online-feedback-list" class="space-y-3 pt-2 text-xs"></div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs border-t border-slate-800 no-print">
+    <p>Foundational English: Present Perfect Master (Units 13, 14 & 15) — Complete Bilingual Interactive Learning & Worksheet Platform</p>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // =========================================================================
+    // 1. EXTRACTED VERBS DATABASE (Alphabetical Order, Meaning, Past, Past Participle)
+    // =========================================================================
+    const extractedVerbs = [
+      { verb: "arrive", meaning: "到着する", past: "arrived", pp: "arrived" },
+      { verb: "be", meaning: "〜である、いる", past: "was / were", pp: "been" },
+      { verb: "buy", meaning: "買う", past: "bought", pp: "bought" },
+      { verb: "catch", meaning: "捕まえる、ひく", past: "caught", pp: "caught" },
+      { verb: "clean", meaning: "掃除する", past: "cleaned", pp: "cleaned" },
+      { verb: "come", meaning: "来る", past: "came", pp: "come" },
+      { verb: "cry", meaning: "泣く", past: "cried", pp: "cried" },
+      { verb: "do", meaning: "する", past: "did", pp: "done" },
+      { verb: "eat", meaning: "食べる", past: "ate", pp: "eaten" },
+      { verb: "enjoy", meaning: "楽しむ", past: "enjoyed", pp: "enjoyed" },
+      { verb: "finish", meaning: "終える", past: "finished", pp: "finished" },
+      { verb: "go", meaning: "行く", past: "went", pp: "gone" },
+      { verb: "have", meaning: "持っている", past: "had", pp: "had" },
+      { verb: "know", meaning: "知っている", past: "knew", pp: "known" },
+      { verb: "leave", meaning: "出発する", past: "left", pp: "left" },
+      { verb: "live", meaning: "住む", past: "lived", pp: "lived" },
+      { verb: "lose", meaning: "失う", past: "lost", pp: "lost" },
+      { verb: "make", meaning: "作る", past: "made", pp: "made" },
+      { verb: "meet", meaning: "会う", past: "met", pp: "met" },
+      { verb: "play", meaning: "遊ぶ、演奏する", past: "played", pp: "played" },
+      { verb: "read", meaning: "読む", past: "read", pp: "read" },
+      { verb: "return", meaning: "戻る", past: "returned", pp: "returned" },
+      { verb: "see", meaning: "見る", past: "saw", pp: "seen" },
+      { verb: "sell", meaning: "売る", past: "sold", pp: "sold" },
+      { verb: "send", meaning: "送る", past: "sent", pp: "sent" },
+      { verb: "speak", meaning: "話す", past: "spoke", pp: "spoken" },
+      { verb: "study", meaning: "勉強する", past: "studied", pp: "studied" },
+      { verb: "visit", meaning: "訪れる", past: "visited", pp: "visited" },
+      { verb: "want", meaning: "欲しい", past: "wanted", pp: "wanted" },
+      { verb: "write", meaning: "書く", past: "wrote", pp: "written" }
+    ].sort((a, b) => a.verb.localeCompare(b.verb));
+
+    function renderVerbsTable(filter = "") {
+      const tbody = document.getElementById('verbs-tbody');
+      const filtered = extractedVerbs.filter(v => 
+        v.verb.toLowerCase().includes(filter.toLowerCase()) || 
+        v.meaning.includes(filter)
+      );
+
+      tbody.innerHTML = filtered.map(v => `
+        <tr class="hover:bg-slate-50 transition">
+          <td class="p-4 font-mono font-bold text-indigo-600">${v.verb}</td>
+          <td class="p-4 font-medium text-slate-800">${v.meaning}</td>
+          <td class="p-4 font-mono text-slate-600">${v.past}</td>
+          <td class="p-4 font-mono font-bold text-emerald-600">${v.pp}</td>
+        </tr>
+      `).join('');
+    }
+
+    function filterVerbs() {
+      const val = document.getElementById('verb-search-input').value;
+      renderVerbsTable(val);
+    }
+
+    // =========================================================================
+    // 2. SECTION NAVIGATION & GLOBAL STATE
+    // =========================================================================
+    function switchSection(sectionId) {
+      document.querySelectorAll('.main-section').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.nav-btn').forEach(el => {
+        el.classList.remove('border-indigo-400', 'text-indigo-300', 'border-amber-400', 'text-amber-300');
+        el.classList.add('border-transparent', 'text-slate-400');
+      });
+
+      document.getElementById(`section-${sectionId}`).classList.remove('hidden');
+      const btn = document.getElementById(`nav-btn-${sectionId}`);
+      btn.classList.remove('border-transparent', 'text-slate-400');
+      
+      if (sectionId === 'online') {
+        btn.classList.add('border-amber-400', 'text-amber-300');
+      } else {
+        btn.classList.add('border-indigo-400', 'text-indigo-300');
+      }
+    }
+
+    // =========================================================================
+    // 3. SECTION CHALLENGES
+    // =========================================================================
+    const ch13Data = [
+      { id: "c13_1", type: "blank", prompt: "Jack (lose) ________ his watch. He doesn't have it now.", target: "has lost", jp: "ジャックは時計をなくしてしまった。" },
+      { id: "c13_2", type: "blank", prompt: "Have you finished your homework ________? (もう〜しましたか)", target: "yet", jp: "もう宿題は終わりましたか。" },
+      { id: "c13_3", type: "blank", prompt: "My father has ________ eaten lunch. (ちょうど)", target: "just", jp: "父はちょうど昼食を食べたところだ。" },
+      { id: "c13_4", type: "rearrange", prompt: "Rearrange: [ already / she / lunch / finished / has ]", target: "she has already finished lunch", jp: "彼女はすでに昼食を終えている。" },
+      { id: "c13_5", type: "rearrange", prompt: "Rearrange: [ just / arrived / train / the / has ]", target: "the train has just arrived", jp: "電車がちょうど到着したところだ。" },
+      { id: "c13_6", type: "rearrange", prompt: "Rearrange: [ left / he / has / town / already ]", target: "he has already left town", jp: "彼はすでに町を出発してしまった。" }
+    ];
+
+    const ch14Data = [
+      { id: "c14_1", type: "blank", prompt: "Have you ________ been to Aomori? (今までに)", target: "ever", jp: "今までに青森に行ったことがありますか。" },
+      { id: "c14_2", type: "blank", prompt: "I have ________ seen a koala. (一度も〜ない)", target: "never", jp: "私は一度もコアラを見たことがない。" },
+      { id: "c14_3", type: "blank", prompt: "She has visited Kyoto three ________. (回)", target: "times", jp: "彼女は3回京都を訪れたことがある。" },
+      { id: "c14_4", type: "rearrange", prompt: "Rearrange: [ never / I / been / have / abroad ]", target: "i have never been abroad", jp: "私は外国に行ったことが一度もない。" },
+      { id: "c14_5", type: "rearrange", prompt: "Rearrange: [ ever / seen / have / bear / you / a ]", target: "have you ever seen a bear", jp: "あなたは今までにクマを見たことがありますか。" },
+      { id: "c14_6", type: "rearrange", prompt: "Rearrange: [ twice / visited / has / he / Tokyo ]", target: "he has visited Tokyo twice", jp: "彼は東京を2回訪れたことがある。" }
+    ];
+
+    const ch15Data = [
+      { id: "c15_1", type: "blank", prompt: "I have lived in Tokyo ________ five years. (5年間)", target: "for", jp: "私は5年間東京に住んでいます。" },
+      { id: "c15_2", type: "blank", prompt: "She has known Ken ________ 2018. (2018年から)", target: "since", jp: "彼女は2018年からケンを知っている。" },
+      { id: "c15_3", type: "blank", prompt: "________ long have you studied English? (どのくらいの間)", target: "how", jp: "どのくらいの間英語を勉強していますか。" },
+      { id: "c15_4", type: "rearrange", prompt: "Rearrange: [ lived / for / years / ten / I / have ]", target: "i have lived for ten years", jp: "私は10年間ずっと住んでいる。" },
+      { id: "c15_5", type: "rearrange", prompt: "Rearrange: [ since / English / studied / she / has / yesterday ]", target: "she has studied English since yesterday", jp: "彼女は昨日から英語を勉強している。" },
+      { id: "c15_6", type: "rearrange", prompt: "Rearrange: [ long / you / known / have / him / how ]", target: "how long have you known him", jp: "どのくらいの間彼を知っていますか。" }
+    ];
+
+    let challengeScores = {};
+
+    function renderChallenges() {
+      // Unit 13
+      document.getElementById('ch13-questions').innerHTML = ch13Data.map((item, idx) => `
+        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+          <div class="flex justify-between items-center text-xs">
+            <span class="font-bold text-indigo-700">Question ${idx + 1} (${item.type === 'rearrange' ? 'Word Order / 語順並べ替え' : 'Fill-in / 穴埋め'})</span>
+            <span class="text-slate-500">${item.jp}</span>
+          </div>
+          <p class="text-sm font-semibold text-slate-800">${item.prompt}</p>
+          <div class="flex gap-2">
+            <input type="text" id="ch-${item.id}" placeholder="Type answer..." class="flex-grow px-3 py-2 bg-white border border-slate-300 rounded-xl text-xs">
+            <button onclick="checkChallengeItem('${item.id}', '${item.target}')" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold">Check</button>
+          </div>
+          <div id="fb-${item.id}" class="text-xs hidden p-2 rounded-lg"></div>
+        </div>
+      `).join('');
+
+      // Unit 14
+      document.getElementById('ch14-questions').innerHTML = ch14Data.map((item, idx) => `
+        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+          <div class="flex justify-between items-center text-xs">
+            <span class="font-bold text-emerald-700">Question ${idx + 1} (${item.type === 'rearrange' ? 'Word Order / 語順並べ替え' : 'Fill-in / 穴埋め'})</span>
+            <span class="text-slate-500">${item.jp}</span>
+          </div>
+          <p class="text-sm font-semibold text-slate-800">${item.prompt}</p>
+          <div class="flex gap-2">
+            <input type="text" id="ch-${item.id}" placeholder="Type answer..." class="flex-grow px-3 py-2 bg-white border border-slate-300 rounded-xl text-xs">
+            <button onclick="checkChallengeItem('${item.id}', '${item.target}')" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold">Check</button>
+          </div>
+          <div id="fb-${item.id}" class="text-xs hidden p-2 rounded-lg"></div>
+        </div>
+      `).join('');
+
+      // Unit 15
+      document.getElementById('ch15-questions').innerHTML = ch15Data.map((item, idx) => `
+        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+          <div class="flex justify-between items-center text-xs">
+            <span class="font-bold text-sky-700">Question ${idx + 1} (${item.type === 'rearrange' ? 'Word Order / 語順並べ替え' : 'Fill-in / 穴埋め'})</span>
+            <span class="text-slate-500">${item.jp}</span>
+          </div>
+          <p class="text-sm font-semibold text-slate-800">${item.prompt}</p>
+          <div class="flex gap-2">
+            <input type="text" id="ch-${item.id}" placeholder="Type answer..." class="flex-grow px-3 py-2 bg-white border border-slate-300 rounded-xl text-xs">
+            <button onclick="checkChallengeItem('${item.id}', '${item.target}')" class="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-bold">Check</button>
+          </div>
+          <div id="fb-${item.id}" class="text-xs hidden p-2 rounded-lg"></div>
+        </div>
+      `).join('');
+    }
+
+    function switchChallengeTab(unit) {
+      ['ch13', 'ch14', 'ch15'].forEach(u => {
+        document.getElementById(`challenge-content-${u}`).classList.add('hidden');
+        document.getElementById(`ch-tab-${u}`).className = "flex-1 py-2 text-xs font-bold rounded-xl text-slate-600 hover:text-slate-900 transition";
+      });
+      document.getElementById(`challenge-content-${unit}`).classList.remove('hidden');
+      const colors = { ch13: 'bg-white text-indigo-900 shadow-sm', ch14: 'bg-white text-emerald-900 shadow-sm', ch15: 'bg-white text-sky-900 shadow-sm' };
+      document.getElementById(`ch-tab-${unit}`).className = `flex-1 py-2 text-xs font-bold rounded-xl ${colors[unit]} transition`;
+    }
+
+    function checkChallengeItem(id, target) {
+      const val = document.getElementById(`ch-${id}`).value.trim().toLowerCase();
+      const fb = document.getElementById(`fb-${id}`);
+      fb.classList.remove('hidden');
+
+      if (val === target.toLowerCase()) {
+        fb.className = "text-xs p-2 rounded-lg bg-emerald-100 text-emerald-800 font-semibold";
+        fb.innerHTML = `✓ 正解！ (${target})`;
+        challengeScores[id] = 1;
+      } else {
+        fb.className = "text-xs p-2 rounded-lg bg-rose-100 text-rose-800 font-semibold";
+        fb.innerHTML = `✗ 不正解。正解: ${target}`;
+        challengeScores[id] = 0;
+      }
+      updateGlobalScoreTracker();
+    }
+
+    function updateGlobalScoreTracker() {
+      const totalCorrect = Object.values(challengeScores).filter(v => v === 1).length + onlineChallengeScore;
+      const totalAttempted = Object.keys(challengeScores).length + (onlineSubmitted ? 10 : 0);
+      const maxPossible = ch13Data.length + ch14Data.length + ch15Data.length + 10;
+
+      document.getElementById('global-score-display').innerText = `${totalCorrect} / ${maxPossible}`;
+      const pct = Math.round((totalCorrect / maxPossible) * 100);
+      document.getElementById('global-mastery-display').innerText = `${pct}%`;
+    }
+
+    // =========================================================================
+    // 4. WORKSHEET GENERATOR
+    // =========================================================================
+    const masterWorksheetPool = [
+      { prompt: "He has ________ arrived at the station. (ちょうど)", target: "just", jp: "彼はちょうど駅に到着したところだ。" },
+      { prompt: "She has ________ finished her homework. (すでに)", target: "already", jp: "彼女はすでに宿題を終えている。" },
+      { prompt: "Have you cleaned your room ________? (もう/まだ)", target: "yet", jp: "もう部屋の掃除をしましたか。" },
+      { prompt: "Have you ________ been to Hokkaido? (今までに)", target: "ever", jp: "今までに北海道に行ったことがありますか。" },
+      { prompt: "I have ________ seen a whale before. (一度も〜ない)", target: "never", jp: "私はこれまでに一度もクジラを見たことがない。" },
+      { prompt: "He has visited Kyoto three ________. (回)", target: "times", jp: "彼は京都を3回訪れたことがある。" },
+      { prompt: "I have lived in this town ________ five years. (5年間)", target: "for", jp: "私はこの町に5年間住んでいます。" },
+      { prompt: "She has known him ________ 2019. (2019年から)", target: "since", jp: "彼女は2019年から彼を知っている。" },
+      { prompt: "________ long have you studied English? (どのくらいの間)", target: "how", jp: "どのくらいの間英語を勉強していますか。" },
+      { prompt: "They have ________ to France. (行ってしまってここにいない)", target: "gone", jp: "彼らはフランスに行ってしまった。" },
+      { prompt: "I have ________ to Tokyo twice. (行ったことがある)", target: "been", jp: "私は東京に2回行ったことがある。" },
+      { prompt: "My brother has ________ tennis for three hours. (ずっと〜している)", target: "played", jp: "私の兄は3時間ずっとテニスをしている。" }
+    ];
+
+    function generateCustomWorksheet() {
+      const title = document.getElementById('ws-title-input').value;
+      document.getElementById('prev-title').innerText = title;
+
+      const container = document.getElementById('prev-questions');
+      container.innerHTML = masterWorksheetPool.map((item, idx) => `
+        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+          <div class="flex justify-between font-bold text-slate-700">
+            <span>Problem ${idx + 1}.</span>
+            <span class="text-slate-500 font-normal text-[11px]">${item.jp}</span>
+          </div>
+          <p class="font-medium text-slate-900">${item.prompt}</p>
+          <div class="h-6 border-b border-dashed border-slate-300 mt-2"></div>
+        </div>
+      `).join('');
+
+      const words = masterWorksheetPool.map(i => i.target);
+      const shuffled = words.sort(() => Math.random() - 0.5);
+      
+      const wordBankContainer = document.getElementById('ws-word-bank');
+      wordBankContainer.innerHTML = shuffled.map(w => `
+        <span class="px-2.5 py-1 bg-white border border-purple-200 text-purple-900 font-bold rounded-md shadow-sm">${w}</span>
+      `).join('');
+    }
+
+    // =========================================================================
+    // 5. ONLINE CHALLENGE SHEET
+    // =========================================================================
+    const onlineQuestions = [
+      {
+        id: "oa",
+        letter: "a",
+        en: "Tell me something YOU have completed recently (for example, in the past three months).",
+        jp: "最近（例えば過去3ヶ月以内に）あなたが完了したことについて教えてください。",
+        hint: "Hint: 【現在完了形・完了】 I have + 過去分詞 ＋ 期間や副詞",
+        placeholder: "Type your original sentence here..."
+      },
+      {
+        id: "ob",
+        letter: "b",
+        en: "Tell me something YOU have experienced ONCE.",
+        jp: "あなたが「一度だけ」経験したことについて教えてください。",
+        hint: "Hint: 【現在完了形・経験】 I have + 過去分詞 + once",
+        placeholder: "Type your original sentence here..."
+      },
+      {
+        id: "oc",
+        letter: "c",
+        en: "Tell me something you have NEVER done yet, but want to do.",
+        jp: "まだ一度もやったことはないけれど、これからやってみたいことについて教えてください。",
+        hint: "Hint: 【現在完了形・経験 (否定)】 I have never + 過去分詞 + yet, but I want to...",
+        placeholder: "Type your original sentence here..."
+      },
+      {
+        id: "od",
+        letter: "d",
+        en: "Have you ever visited Aomori Prefecture?",
+        jp: "今までに青森県を訪れたことがありますか。",
+        hint: "Hint: 【現在完了形・経験の疑問文】 Yes, I have. / No, I haven't. + 補足",
+        placeholder: "Type your original sentence here..."
+      },
+      {
+        id: "oe",
+        letter: "e",
+        en: "Has your best friend ever cried in front of you?",
+        jp: "あなたの親友があなたの目の前で泣いたことはこれまでにありますか。",
+        hint: "Hint: 【現在完了形・経験の疑問文 (3人称単数)】 Yes, he/she has. / No, he/she hasn't.",
+        placeholder: "Type your original sentence here..."
+      },
+      {
+        id: "of",
+        letter: "f",
+        en: "Since when have you lived in your town? (key word is \"since\")",
+        jp: "いつから今の町に住んでいますか。（キーワードは「since」）",
+        hint: "Hint: 【現在完了形・継続】 I have lived in... since + 過去の時点",
+        placeholder: "Type your original sentence here..."
+      },
+      {
+        id: "og",
+        letter: "g",
+        en: "How long have you studied the English language for? (key word is \"for\")",
+        jp: "どのくらいの間、英語を勉強していますか。（キーワードは「for」）",
+        hint: "Hint: 【現在完了形・継続】 I have studied English for + 期間",
+        placeholder: "Type your original sentence here..."
+      },
+      {
+        id: "oh",
+        letter: "h",
+        en: "Can you speak a foreign language? (Answer simply with Yes OR No and then give explanation / reason using 現在完了形)",
+        jp: "外国語を話すことができますか。（「Yes」または「No」で答え、現在完了形を使って説明しなさい）",
+        hint: "Hint: 【Yes/No + 現在完了形】 Yes, I can. I have studied...",
+        placeholder: "Type your original sentence here..."
+      },
+      {
+        id: "oi",
+        letter: "i",
+        en: "Do you enjoy going out with friends in your free time? (Answer simply with Yes OR No and then give explanation / reason using 現在完了形)",
+        jp: "自由な時間に友達と出かけるのは好きですか。（「Yes」または「No」で答え、現在完了形を使って説明しなさい）",
+        hint: "Hint: 【Yes/No + 現在完了形】 Yes, I do. I have visited...",
+        placeholder: "Type your original sentence here..."
+      },
+      {
+        id: "oj",
+        letter: "j",
+        en: "Have you eaten \"natto pizza\" before? (Answer simply with Yes OR No and then give explanation / reason using 現在完了形)",
+        jp: "これまでに「納豆ピザ」を食べたことがありますか。（「Yes」または「No」で答え、現在完了形を使って説明しなさい）",
+        hint: "Hint: 【Yes/No + 現在完了形・経験】 No, I haven't. I have never eaten...",
+        placeholder: "Type your original sentence here..."
+      }
+    ];
+
+    let onlineSubmitted = false;
+    let onlineChallengeScore = 0;
+
+    function renderOnlineQuestions() {
+      const container = document.getElementById('online-questions-container');
+      container.innerHTML = onlineQuestions.map(q => `
+        <div class="p-5 sm:p-6 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <span class="px-2.5 py-1 bg-indigo-100 text-indigo-800 text-xs font-bold rounded-lg uppercase">Question (${q.letter})</span>
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 mt-2">${q.en}</h3>
+              <p class="text-xs text-indigo-700 font-medium mt-0.5">${q.jp}</p>
+            </div>
+          </div>
+
+          <div class="bg-indigo-50/80 border border-indigo-100 p-3 rounded-xl text-xs text-indigo-900 font-semibold">
+            ${q.hint}
+          </div>
+
+          <div>
+            <textarea id="online-ans-${q.id}" rows="2" placeholder="${q.placeholder}"
+              class="w-full p-3 bg-white border border-slate-300 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function submitOnlineChallenge() {
+      onlineSubmitted = true;
+      let score = 0;
+      let feedbackHTML = '';
+
+      onlineQuestions.forEach(q => {
+        const val = document.getElementById(`online-ans-${q.id}`).value.trim();
+        const hasContent = val.length > 5;
+        
+        if (hasContent) {
+          score += 1;
+          feedbackHTML += `
+            <div class="p-3 rounded-xl bg-emerald-900/40 border border-emerald-500/30 flex items-start gap-2">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="text-emerald-300">Question (${q.letter}) Completed:</strong>
+                <p class="text-slate-200 mt-0.5 italic">"${val}"</p>
+              </div>
+            </div>
+          `;
+        } else {
+          feedbackHTML += `
+            <div class="p-3 rounded-xl bg-rose-900/40 border border-rose-500/30 flex items-start gap-2">
+              <i data-lucide="alert-circle" class="w-4 h-4 text-rose-400 shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="text-rose-300">Question (${q.letter}) Needs More Detail:</strong>
+                <p class="text-slate-300 mt-0.5">Please provide a complete sentence using the required grammar structure.</p>
+              </div>
+            </div>
+          `;
+        }
+      });
+
+      onlineChallengeScore = score;
+      document.getElementById('online-result-box').classList.remove('hidden');
+      document.getElementById('online-score-summary').innerText = `You earned ${score} / 10 points for your complete answers!`;
+      document.getElementById('online-feedback-list').innerHTML = feedbackHTML;
+
+      updateGlobalScoreTracker();
+      lucide.createIcons();
+      document.getElementById('online-result-box').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function saveAsPDF() {
+      window.print();
+    }
+
+    // INITIALIZATION ON WINDOW LOAD
+    window.onload = function() {
+      lucide.createIcons();
+      renderVerbsTable();
+      renderChallenges();
+      renderOnlineQuestions();
+      generateCustomWorksheet();
+      updateGlobalScoreTracker();
+    };
+  </script>
+</body>
+</html>
+```
+eof
+
+I have successfully updated the worksheet generator title defaults and labels in Section 3 from "Junior High English" to "Foundational English". Let me know if you would like any other sections adjusted!
